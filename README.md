@@ -146,7 +146,7 @@
   tkn pipelinerun list
   ```
 
-## Trigger a PipelineRun using GitHub Webhooks
+## Automatically Trigger a PipelineRun using GitHub Webhooks
 - Add a TriggerBinding to convert GitHub webhook payload to parameters and a TriggerTemplate to template PipelineRun resource:
   ```sh
   kubectl apply -f ./triggers/link-pull-request-to-jira.yaml
@@ -191,6 +191,7 @@
     -d '{"action": "opened", "head_commit":{"id":"master"},"repository":{"url": "https://github.com/tektoncd/triggers"}}' \
     http://localhost:8080
   ```
+  See [Webhook event payloads][] for the format.
 ## (Optional) Proxy GitHub webhook behind a secure firewall with smee.io
 - Create a new channel at https://smee.io/.
 - Run `smee` CLI behind your firewall.
@@ -212,3 +213,4 @@ kubectl delete triggertemplates --all
 ```
 
 [Minikube]: https://kubernetes.io/docs/tasks/tools/install-minikube/
+[Webhook event payloads]: https://developer.github.com/webhooks/event-payloads/#pull_request

@@ -5,7 +5,7 @@ metadata:
   name: link-pull-request-to-jira
 spec:
   params:
-    - name: gitRevision
+    - name: GIT_REVISION
       value: $(body.pull_request.head.sha)
     - name: REPO_FULL_NAME
       value: $(body.repository.full_name)
